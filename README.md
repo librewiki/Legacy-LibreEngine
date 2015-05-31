@@ -13,5 +13,12 @@ virtualenv venv
 
 . venv/bin/activate
 
-pip3 install Flask
+새로운 패키지를 추가하려면 
+
+(env) ~$ pip install package
+
+프로젝트를 클론해서 다시 구축할 때에는
+
+(env) ~$ pip install -r requirements.txt
+
 
