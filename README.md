@@ -7,6 +7,8 @@
 
 sudo apt-get install python3-setuptools
 
+sudo apt-get install python3-pip
+
 sudo pip3 install virtualenv
 
 폴더 하나 생성해서 들어간뒤
