@@ -8,8 +8,9 @@ git
 python3-virtualenv
 
 ### install
-git clone https://hub.librewiki.net/librewiki-dev/libreengine.git
-virtualenv libreengine
-cd libreengine
-. bin/activate
-(venv) ~$ pip install -r requirements.txt
+<br>git clone https://hub.librewiki.net/librewiki-dev/libreengine.git
+<br>virtualenv libreengine
+<br>cd libreengine
+<br>. bin/activate
+
+<br>(venv) ~$ pip install -r requirements.txt
