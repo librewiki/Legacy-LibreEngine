@@ -1,0 +1,13 @@
+/* 메뉴 시작 */
+.libre-navbar {
+    background-color: blue;
+    margin: 0 auto;
+    height: 50px;
+}
+
+@media (min-width: 1240px) {
+    .libre-navbar {
+        width: 1240px;
+    }
+}
+/* 메뉴 끝 */
