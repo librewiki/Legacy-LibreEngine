@@ -1,8 +1,32 @@
 /* 메뉴 시작 */
 .libre-navbar {
-    background-color: blue;
     margin: 0 auto;
     height: 50px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+}
+
+.navbar-brand {
+    margin-right: 10px;
+    padding: 7px 20px;
+    margin-left: 5px !important;
+}
+
+.libre-logo {
+    width: auto;
+    height: 36px;
+}
+
+.libre-navbar .container {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .navbar-brand {
+        margin-left: 0px !important;
+    }
 }
 
 @media (min-width: 1240px) {

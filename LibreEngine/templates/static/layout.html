@@ -1,3 +1,4 @@
+<!-- author = 이츠레아 -->
 <!DOCTYPE html>
 <html lang="ko">
     <head>
@@ -14,11 +15,15 @@
     </head>
     <body>
         <header>
-            <div class="navbar navbar-fixed-top libre-navbar">
+            <!-- Start Navbar-->
+            <div class="navbar navbar-default navbar-fixed-top libre-navbar">
                 <div class="container">
-
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="{{ url_for('wiki')}}"><img class="libre-logo" title="메인으로" src="{{ url_for('static', filename='img/logo.png') }}"></a>
+                    </div>
                 </div>
             </div>
+            <!-- End Navbar -->
         </header>
         <div class="container">
             <div class="container-fluid libre-content">
