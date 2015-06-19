@@ -1,12 +1,5 @@
 __author__ = '이츠레아'
 from LibreEngine.lib.dbConnect import *
-from flask.ext.sqlalchemy import SQLAlchemy
-
-
-db = SQLAlchemy()
-
-
-
 
 class WikiText(db.Model):
     __tablename__ = 'documents'
