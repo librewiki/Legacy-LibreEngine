@@ -1,7 +1,5 @@
 __author__ = '이츠레아, 나유타'
 
-
-
 from flask.ext.sqlalchemy import SQLAlchemy
 from LibreEngine import app
 from LibreEngine.conf.database import db_config
