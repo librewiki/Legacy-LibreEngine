@@ -16,10 +16,25 @@
     <body>
         <header>
             <!-- Start Navbar-->
-            <div class="navbar navbar-default navbar-fixed-top libre-navbar">
+            <div class="navbar navbar-inverse navbar-fixed-top libre-navbar">
                 <div class="container">
                     <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
                         <a class="navbar-brand" href="{{ url_for('wiki')}}"><img class="libre-logo" title="메인으로" src="{{ url_for('static', filename='img/logo.png') }}"></a>
+                    </div>
+                    <div id="navbar" class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#">새문서</a></li>
+                            <li><a href="#">최근변경</a></li>
+                            <li><a href="#">임의문서</a></li>
+                            <li><a href="#">도구</a></li>
+                            <li><a href="#">도움말</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
