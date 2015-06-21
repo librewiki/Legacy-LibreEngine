@@ -10,3 +10,5 @@ class WikiText(db.Model):
     text = db.Column(db.Unicode(convert_unicode=True))
     date = db.Column(db.Integer)
 
+
+

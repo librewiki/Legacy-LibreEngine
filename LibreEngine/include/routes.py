@@ -1,6 +1,9 @@
 __author__ = '이츠레아, 나유타'
 from flask import render_template, request, flash, session, url_for, redirect
 from LibreEngine.include.models import *
+from LibreEngine.include.parsing import mwrender
+
+
 
 @app.route('/')
 def index():
@@ -9,8 +12,12 @@ def index():
 @app.route('/wiki/<name>')
 def read(name):
     page = WikiText.query.filter_by(document = name).first()
+
+
+    source = mwrender(page.text)
+
     if page:
-        return render_template('wiki/wiki.html', name=name, contents=page.text)
+        return render_template('wiki/wiki.html', name=name, contents=source)
     else:
         return render_template('wiki/wiki.html', name=name, contents='페이지가 없으영')
 
