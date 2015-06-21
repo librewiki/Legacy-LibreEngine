@@ -1,10 +1,4 @@
 constants==0.6.0
-wiki==0.0.24.2
-Django==1.6.11
-django-classy-tags==0.6.2
-django-mptt==0.6.0
-django-nyt==0.9.7.2
-django-sekizai==0.8.2
 Flask==0.10.1
 Flask-Redis==0.1.0
 Flask-SQLAlchemy==2.0
