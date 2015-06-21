@@ -14,15 +14,16 @@ def index():
 @app.route('/wiki/<string:name>')
 def read(name):
     newname = name.replace("_", " ")
-    page = WikiText.query.filter_by(document = newname).first()
+    page = WikiText.query.filter(WikiText.document == newname).first()
 
     unwritenpage = "<p>해당문서를 찾을수 없습니다.</p>"
-    source = mwrender(page.text)
-    pagedocument = "<h1 class=\"title\">" + page.document + "</h1>"
+    pagedocument = "<h1 class=\"title\">" + newname + "</h1>"
     if page:
+
+        source = mwrender(page.text)
         return render_template('wiki/wiki.html', name=name, contents=source, documents=pagedocument)
     else:
-        return render_template('wiki/wiki.html', name=name, contents=unwritenpage, documents=name)
+        return render_template('wiki/wiki.html', name=name, contents=unwritenpage, documents=pagedocument)
 
 @app.route('/wikitext/<int:page_num>')
 def wikipage_num(page_num):
