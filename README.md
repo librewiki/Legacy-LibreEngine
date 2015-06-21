@@ -6,6 +6,7 @@
 python3
 git
 python3-virtualenv
+pandoc
 
 ### install
 <ol style="list-style-type: decimal">
