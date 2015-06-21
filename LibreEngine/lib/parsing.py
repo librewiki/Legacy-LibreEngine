@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-__author__ = 'myshytf'
+__author__ = '나유타'
 
 import pypandoc
 
