@@ -8,7 +8,7 @@ def mwrender(mwtext):
 
 
 
-    output = pypandoc.convert(mwtext, 'html5', format='mediawiki' )
+    output = pypandoc.convert(mwtext, 'html', format='mediawiki' )
 
     rendered = output
     return rendered
