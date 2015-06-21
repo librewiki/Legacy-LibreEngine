@@ -8,7 +8,7 @@ def index():
 
 @app.route('/wiki/<name>')
 def read(name):
-    page = WikiText.query.filter(WikiText.document == name).first()
+    page = WikiText.query.filter_by(document = name).first()
     if page:
         return render_template('wiki/wiki.html', name=name, contents=page.text)
     else:

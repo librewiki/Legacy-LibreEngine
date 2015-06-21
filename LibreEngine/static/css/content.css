@@ -7,6 +7,15 @@
     border-bottom: 1px solid #222;
 }
 
+.libre-content .col-xs-9 {
+    width: 1000px;
+    border-right: 1px solid #222;
+}
+
+.libre-content .col-xs-3 {
+    width: 230px;
+}
+
 @media (min-width: 1240px) {
     .libre-content {
         width: 1240px;
