@@ -4,3 +4,7 @@
 /* 메뉴 시작 */
 @import "menu.css";
 /* 메뉴 끝 */
+
+/* 내용 시작 */
+@import "content.css";
+/* 내용 끝 */

@@ -4,8 +4,6 @@
     height: 50px;
     background-color: #333;
     border-bottom: 1px solid #222;
-    border-left: 1px solid #222;
-    border-right: 1px solid #222;
 }
 
 .navbar-brand {
@@ -33,15 +31,56 @@
     background-color: #A3CCA3;
 }
 
+.nav-right {
+    float: right;
+}
+
+.subnav {
+    top: 50px;
+    margin: 0 auto;
+    height: 30px;
+}
+
+.subnav .container {
+    width: 100%;
+    padding: 0;
+    border-bottom: 1px solid #222;
+}
+
+.libre-search {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.libre-search .form-control {
+    height: 30px;
+    border-radius: 0;
+    border: 0;
+    padding: 2px 8px;
+}
+
 @media (min-width: 768px) {
     .navbar-brand {
         margin-left: 0px !important;
+    }
+
+    .libre-search .form-control {
+        width: 230px;
+        border-left: 1px solid #222;
     }
 }
 
 @media (min-width: 1240px) {
     .libre-navbar {
         width: 1240px;
+        border-left: 1px solid #222;
+        border-right: 1px solid #222;
+    }
+    .subnav {
+        width: 1240px;
+        border-left: 1px solid #222;
+        border-right: 1px solid #222;
     }
 }
 /* 메뉴 끝 */

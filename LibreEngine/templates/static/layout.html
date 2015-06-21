@@ -27,7 +27,7 @@
                         </button>
                         <a class="navbar-brand" href="{{ url_for('wiki')}}"><img class="libre-logo" title="메인으로" src="{{ url_for('static', filename='img/logo.png') }}"></a>
                     </div>
-                    <div id="navbar" class="collapse navbar-collapse">
+                    <div id="navbar" class="nav-contents">
                         <ul class="nav navbar-nav">
                             <li><a href="#">새문서</a></li>
                             <li><a href="#">최근변경</a></li>
@@ -35,23 +35,34 @@
                             <li><a href="#">도구</a></li>
                             <li><a href="#">도움말</a></li>
                         </ul>
+                        <ul class="nav navbar-nav nav-right">
+                            <li><a href="#">로그인</a></li>
+                        </ul>
                     </div>
+                </div>
+            </div>
+            <div class="subnav navbar-fixed-top">
+                <div class="container">
+                    <form class="navbar-form navbar-right libre-search">
+                        <input type="text" class="form-control" placeholder="검색어">
+                    </form>
                 </div>
             </div>
             <!-- End Navbar -->
         </header>
-        <div class="container">
-            <div class="container-fluid libre-content">
-                <div class="row">
-                    <div class="col-xs-9">
-                        {% block content %}
-                        {% endblock %}
-                    </div>
-                    <div class="col-xs-3">
-                    </div>
+        <!-- Start Content -->
+        <div class="container-fluid libre-content">
+            <div class="row">
+                <div class="col-xs-9">
+                    test
+                    {% block content %}
+                    {% endblock %}
+                </div>
+                <div class="col-xs-3">
                 </div>
             </div>
         </div>
+        <!-- End Content -->
         <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
