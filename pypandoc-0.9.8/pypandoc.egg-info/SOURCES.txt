@@ -1,0 +1,9 @@
+MANIFEST.in
+README.md
+pypandoc.py
+setup.py
+pypandoc.egg-info/PKG-INFO
+pypandoc.egg-info/SOURCES.txt
+pypandoc.egg-info/dependency_links.txt
+pypandoc.egg-info/requires.txt
+pypandoc.egg-info/top_level.txt
