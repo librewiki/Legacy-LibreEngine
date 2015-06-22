@@ -3,7 +3,10 @@
 __author__ = '이츠레아, 나유타'
 from flask import render_template, request, flash, session, url_for, redirect
 from LibreEngine.include.models import *
-from LibreEngine.lib.parsing import mwrender
+from LibreEngine.lib.parsing import *
+from sqlalchemy import update
+
+
 
 
 
@@ -29,7 +32,7 @@ def read(name):
     pagedocument = "<h1 class=\"title\">" + newname + "</h1>"
     if page:
 
-        source = mwrender(page.text)
+        source = mwtohtmlrender(page.text)
 
         return render_template('wiki/wiki.html', name=name, contents=source, documents=pagedocument)
     else:
@@ -39,6 +42,16 @@ def read(name):
 def edit(name):
     page_role = "글쓰기 페이지"
     detourtext = detour(page_role)
-    return render_template('wiki/wiki.html', name=name, contents=detourtext)
+    detourstatus = 0
+
+    newname = name.replace("_", " ")
+    page = WikiText.query.filter(WikiText.document == newname).first()
+
+    if page:
+        gtwh = mwtomwrender(page.text)
+
+        return render_template('wiki/wiki.html', name=name, contents=gtwh)
+    else:
+        return render_template('wiki/wiki.html', name=name, contents=detourtext)
 
 
