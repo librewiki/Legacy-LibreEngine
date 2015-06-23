@@ -39,27 +39,38 @@ def read(name):
 def edit(name):
     page_role = "편집 페이지"
     detourtext = detour(page_role)
-    detourstatus = 0
+    #detourstatus = 0
+    documents = name
 
     newname = name.replace("_", " ")
     page = WikiText.query.filter(WikiText.document == newname).first()
 
     if page:
-        print(page)
-        gtwh = mwtomwrender(page.text)
+        rendered = mwtomwrender(page.text)
 
-        return render_template('wiki/edit.html', name=name, contents=gtwh)
+        return render_template('wiki/edit.html', name=name, contents=rendered, documents=name)
     else:
         return render_template('wiki/edit.html', name=name, contents=detourtext)
+
+@app.route("/commit/<string:name>")
+def commit(name):
+
+
+    return render_template('commit/' + name)
+
+
+'''
 @app.route("/jsraw/<string:name>")
 def js_raw(name):
-	page_role = "글쓰기 페이지"
+    page_role = "글쓰기 페이지"
     detourtext = detour(page_role)
+
     detourstatus = 0
 
     newname = name.replace("_", " ")
     page = WikiText.query.filter(WikiText.document == newname).first()
-	return page
+    return page
+'''
 
 
 @app.route('/search/<string:name>')
