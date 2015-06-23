@@ -8,6 +8,7 @@
             <title>{{ config.NAME }} - {{ name }}</title>
             <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
             <link rel="stylesheet" href="{{ url_for('static', filename='css/libre.css') }}">
+            <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
 			<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-1.11.3_min.js') }}" charset="utf-8"></script>
 			<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}" charset="utf-8"></script>
             <!--[if lt IE 9]>
@@ -46,7 +47,9 @@
             <div class="subnav navbar-fixed-top" style="z-index:1000;">
                 <div class="container">
                     <form class="navbar-form navbar-right libre-search">
-                        <input type="text" class="form-control" placeholder="검색어">
+                        <input id="search-text-box" type="text" class="form-control" placeholder="검색어">
+                        <div id="search-result-pos" class="form-control" style="display: block; position: absolute;">
+                        </div>
                     </form>
                 </div>
             </div>
@@ -64,8 +67,7 @@
             </div>
         </div>
         <!-- End Content -->
-        <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        
         <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
         <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
     </body>
