@@ -10,13 +10,15 @@ function onSearchAjaxDone(res)
 {
 	var result_list = res.hit;
 	var list_element = document.createElement("ul");
-	$(result_list).each(function(idx,iter){
+	for(int i = 0 ; i < result_list.length ; i++)
+	{
+		it = result_list[i];
 		var link_element = document.createElement("a");
 		
 		$(link_element).html(iter._source.document);
 		$(link_element).attr("href","/wiki/" + encodeURIComponent(iter._source.document) );
 		$(list_element).append("<li>" + list_item_element + "</li>");
-	});
+	}
 	$("#search-result-pos").html(list_element);
 }
 function onSearchAjaxRequest()
