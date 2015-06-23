@@ -24,11 +24,11 @@ function onSearchAjaxRequest()
 	var search_text = $("#search-text-box").val();
 	if(search_text[0] != "*" && search_text[search_text.length - 1] != "*")
 	{
-		search_text "*" + search_text + "*";
+		search_text = "*" + search_text + "*";
 	}
 	var param = 
 	{
-		url : "http://68.195.46.102:9200/search/mysql/_search",
+		url : "http://68.195.46.102:8888/search/mysql/_search",
 		data : {
 		   "q" : search_text,
 		  "size":1048576

@@ -46,7 +46,7 @@ def edit(name):
     page = WikiText.query.filter(WikiText.document == newname).first()
 
     if page:
-        rendered = mwtomwrender(page.text)
+        rendered = page.text
 
         return render_template('wiki/edit.html', name=name, contents=rendered, documents=name)
     else:
@@ -72,7 +72,7 @@ def js_raw(name):
     return page
 '''
 
-
+'''
 @app.route('/search/<string:name>')
 def search(name):
 
@@ -83,3 +83,5 @@ def search(name):
         return render_template('wiki/wiki.html', name=name, contents=query)
     else:
         return render_template('wiki/wiki.html', name=name, contents="Something's wrong!")
+
+'''

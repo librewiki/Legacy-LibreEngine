@@ -33,29 +33,4 @@ def mwtomwrender(mwtext):
     rendered = output
     return rendered
 
-def dbtitlesearch(target):
-
-
-
-
-
-
-    searchname = "'%"+target+"%'"
-
-    connection = pymysql.connect(host='sv3.al.gl',
-                                 user='libredev',
-                                 passwd='libre_dev',
-                                 db='libredev',
-                                 charset='utf8mb4')
-
-    cursor = connection.cursor()
-
-    sql = "SELECT * FROM `documents` WHERE `document` LIKE " + searchname + " ORDER BY `document` ASC;"
-
-    cursor.execute(sql)
-
-    result = cursor.fetchall()
-    if result:
-        return result
-    else:
-        return "somthing's wrong"
+#def dbtitlesearch(target):
