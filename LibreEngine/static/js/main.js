@@ -24,7 +24,9 @@ function onSearchAjaxDone(res)
     
 		$(list_element).append(t);
 	}
+	
 	$("#search-result-pos").html(list_element);
+	$("#search-result-pos").fadeIn(); 
 }
 function onSearchAjaxRequest()
 {
@@ -36,7 +38,7 @@ function onSearchAjaxRequest()
 	}
 	if(search_text[0] != "*" && search_text[search_text.length - 1] != "*")
 	{
-		search_text = "*" + search_text + "*";
+		search_text = search_text + "*";
 	}
 	var param = 
 	{
@@ -50,11 +52,17 @@ function onSearchAjaxRequest()
 	};
 	$.ajax(param).done(onSearchAjaxDone);
 }
+function onSearchAjaxEnd(evt)
+{
+	
+}
+
+
 $(document).ready(
 function()
 {
-	$("#search-text-box").on('paste',onSearchAjaxRequest);
-	$("#search-text-box").on('keydown',onSearchAjaxRequest);
+	$("#search-text-box").on('onchange',onSearchAjaxRequest);
+	$("#search-text-box").on("blur",function(){ $("#search-result-pos").fadeOut(); });
 	$("#search-form").submit(function()
 	{
 		var search_text = $("#search-text-box").val();

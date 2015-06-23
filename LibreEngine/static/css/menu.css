@@ -97,9 +97,10 @@
 /* 메뉴 끝 */
 #search-result-pos
 {
-display: block;
-position: absolute;
 padding:0px;
+height: 300px;
+border: 1px solid #000;
+border: 1px solid rgb(0, 0, 0);
 }
 #search-result-pos ul
 {
