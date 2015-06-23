@@ -4,9 +4,15 @@
 {% block content %}
     {{ documents | safe }}
 <form action="/commit/{{ documents }}" method = "POST">
-<textarea>
-    {{ contents | safe }}
-</textarea>
+<div>
+    <code>
+        <pre>
+            <textarea style="margin: 0px; width: 800px; height: 270px;">
+                {{ contents | safe }}
+            </textarea>
+        </pre>
+    </code>
+</div>
 <input value="문서 저장" type="submit" />
 <input value="취소" type="button"/>
 </form>
