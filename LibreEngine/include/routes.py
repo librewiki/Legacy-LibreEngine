@@ -18,7 +18,7 @@ def index(page):
         return redirect(url_for('read', name='FrontPage'))
     else:
         return redirect(url_for('read', name='FrontPage'))
-@app.route('/wiki/<string:name>')
+@app.route('/wiki/<path:name>')
 def read(name):
     page_role = "문서페이지"
     newname = name.replace("_", " ")
@@ -35,7 +35,7 @@ def read(name):
     else:
         return render_template('wiki/wiki.html', name=name, contents=unwritenpage, documents=pagedocument)
 
-@app.route('/edit/<string:name>')
+@app.route('/edit/<path:name>')
 def edit(name):
     page_role = "편집 페이지"
     detourtext = detour(page_role)
@@ -52,15 +52,14 @@ def edit(name):
     else:
         return render_template('wiki/edit.html', name=name, contents=detourtext)
 
-@app.route("/commit/<string:name>")
+@app.route("/commit/<path:name>",methods=["POST"])
 def commit(name):
-
 
     return render_template('commit/' + name)
 
 
 '''
-@app.route("/jsraw/<string:name>")
+@app.route("/jsraw/<path:name>")
 def js_raw(name):
     page_role = "글쓰기 페이지"
     detourtext = detour(page_role)
@@ -73,7 +72,7 @@ def js_raw(name):
 '''
 
 '''
-@app.route('/search/<string:name>')
+@app.route('/search/<path:name>')
 def search(name):
 
     query = dbtitlesearch(name)

@@ -36,7 +36,7 @@ function onSearchAjaxRequest()
 	}
 	if(search_text[0] != "*" && search_text[search_text.length - 1] != "*")
 	{
-		search_text = "*" + search_text + "*";
+		search_text =  search_text + "*" ;
 	}
 	var param = 
 	{
