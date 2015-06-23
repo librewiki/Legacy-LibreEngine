@@ -1,0 +1,14 @@
+
+{% extends "static/layout.html" %}
+<body>
+{% block content %}
+    {{ documents | safe }}
+<form action="/commit/{{uri_for(documents)}}" method = "POST">
+<textarea>
+    {{ contents | safe }}
+</textarea>
+<input value="문서 저장" type="commit" />
+<input value="취소" type="button"/>
+</form>
+{% endblock %}
+</body>

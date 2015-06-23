@@ -29,7 +29,7 @@
                         </button>
                         <a class="navbar-brand" href="{{ url_for('read', name='FrontPage') }}"><img class="libre-logo" title="메인으로" src="{{ url_for('static', filename='img/logo.png') }}"></a>
                     </div>
-                    <div id="navbar" class="nav-contents">
+                    <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li><a href="{{ url_for('edit', name=name) }}">편집(기능점검용)</a></li>
                             <li><a href="#">최근변경</a></li>
@@ -37,7 +37,7 @@
                             <li><a href="#">도구</a></li>
                             <li><a href="#">도움말</a></li>
                         </ul>
-                        <ul class="nav navbar-nav nav-right">
+                        <ul class="nav navbar-nav navbar-right">
                             <li><a href="#">로그인</a></li>
                         </ul>
                     </div>

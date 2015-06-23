@@ -50,8 +50,17 @@ def edit(name):
     if page:
         gtwh = mwtomwrender(page.text)
 
-        return render_template('wiki/wiki.html', name=name, contents=gtwh)
+        return render_template('wiki/edit.html', name=name, contents=gtwh)
     else:
-        return render_template('wiki/wiki.html', name=name, contents=detourtext)
+        return render_template('wiki/edit.html', name=name, contents=detourtext)
+@app.route("/jsraw/<string:name>")
+def js_raw(name):
+	page_role = "글쓰기 페이지"
+    detourtext = detour(page_role)
+    detourstatus = 0
+
+    newname = name.replace("_", " ")
+    page = WikiText.query.filter(WikiText.document == newname).first()
+	return page
 
 
