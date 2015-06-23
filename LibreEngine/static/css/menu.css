@@ -21,10 +21,13 @@
     padding: 0;
     margin: 0;
     width: 100%;
+    color: #222;
+
 }
 
 .navbar-inverse .navbar-nav>li>a {
-    color: #fefefe;
+    color: #222;
+    background-color:#888;
 }
 
 .navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
@@ -33,6 +36,13 @@
 
 .nav-right {
     float: right;
+}
+.navbar-nav {
+    background-color:#333;
+
+}
+.navbar {
+    background-color:#333;
 }
 
 .subnav {

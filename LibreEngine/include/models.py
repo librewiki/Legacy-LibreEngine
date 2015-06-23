@@ -4,6 +4,7 @@ from flask import url_for
 
 
 
+
 class WikiText(db.Model):
 
     __tablename__ = 'documents'

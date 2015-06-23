@@ -3,22 +3,24 @@
     position: relative;
     top: 80px;
     margin: 0 auto;
+    max-width: 1240px;
     width: 100%;
     border-bottom: 1px solid #222;
 }
 
 .libre-content .col-xs-9 {
-    width: 1000px;
+    max-width: 1009px;
+    width: 100%;
     border-right: 1px solid #222;
 }
 
 .libre-content .col-xs-3 {
-    width: 230px;
+    width: 231px;
 }
 
-@media (min-width: 1240px) {
+@media (max-width: 1240px) {
     .libre-content {
-        width: 1240px;
+        width: 100%;
         border: 1px solid #222;
         border-top: none;
     }
