@@ -10,6 +10,8 @@ function onSearchAjaxDone(res)
 {
 	var result_list = res.hits.hits;
 	var list_element = document.createElement("ul");
+  $(list_element).css("background-color","#FFF");
+  $(list_element).css("list-style","none");
 	for(var i = 0 ; i < result_list.length ; i++)
 	{
 		iter = result_list[i];
@@ -17,7 +19,10 @@ function onSearchAjaxDone(res)
 		
 		$(link_element).html(iter._source.document);
 		$(link_element).attr("href","/wiki/" + encodeURIComponent(iter._source.document) );
-		$(list_element).append("<li>" + list_item_element + "</li>");
+    var t = document.createElement("li");
+    $(t).html(link_element);
+    
+		$(list_element).append(t);
 	}
 	$("#search-result-pos").html(list_element);
 }
@@ -50,5 +55,11 @@ function()
 {
 	$("#search-text-box").on('paste',onSearchAjaxRequest);
 	$("#search-text-box").on('keydown',onSearchAjaxRequest);
+	$("#search-form").submit(function()
+	{
+		var search_text = $("#search-text-box").val();
+		document.location.href = "/wiki/" + encodeURIComponent(search_text);
+		return false;		
+	});
 }
 );
