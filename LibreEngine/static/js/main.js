@@ -8,7 +8,7 @@ function importStyle(src)
 }
 function onSearchAjaxDone(res)
 {
-	var result_list = res.hit;
+	var result_list = res.hits.hits;
 	var list_element = document.createElement("ul");
 	for(var i = 0 ; i < result_list.length ; i++)
 	{
@@ -24,6 +24,11 @@ function onSearchAjaxDone(res)
 function onSearchAjaxRequest()
 {
 	var search_text = $("#search-text-box").val();
+	search_text = search_text.trim();
+	if(search_text.length == 0)
+	{
+		return;
+	}
 	if(search_text[0] != "*" && search_text[search_text.length - 1] != "*")
 	{
 		search_text = "*" + search_text + "*";
