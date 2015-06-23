@@ -1,0 +1,4 @@
+#!/Users/myshytf/Desktop/libreengine/bin/pypy
+# EASY-INSTALL-SCRIPT: 'CherryPy==3.7.0','cherryd'
+__requires__ = 'CherryPy==3.7.0'
+__import__('pkg_resources').run_script('CherryPy==3.7.0', 'cherryd')
