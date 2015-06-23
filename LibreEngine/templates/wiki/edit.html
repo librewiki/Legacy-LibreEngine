@@ -3,7 +3,7 @@
 <body>
 {% block content %}
     {{ documents | safe }}
-<form action="/commit/{{uri_for(documents)}}" method = "POST">
+<form action="/commit/{{ documents }}" method = "POST">
 <textarea>
     {{ contents | safe }}
 </textarea>
