@@ -12,7 +12,7 @@ function onSearchAjaxDone(res)
 	var list_element = document.createElement("ul");
 	for(var i = 0 ; i < result_list.length ; i++)
 	{
-		it = result_list[i];
+		iter = result_list[i];
 		var link_element = document.createElement("a");
 		
 		$(link_element).html(iter._source.document);
