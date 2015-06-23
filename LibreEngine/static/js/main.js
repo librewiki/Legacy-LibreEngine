@@ -10,7 +10,7 @@ function onSearchAjaxDone(res)
 {
 	var result_list = res.hit;
 	var list_element = document.createElement("ul");
-	for(int i = 0 ; i < result_list.length ; i++)
+	for(var i = 0 ; i < result_list.length ; i++)
 	{
 		it = result_list[i];
 		var link_element = document.createElement("a");
@@ -30,7 +30,7 @@ function onSearchAjaxRequest()
 	}
 	var param = 
 	{
-		url : "http://68.195.46.102:8888/search/mysql/_search",
+		url : "http://68.195.46.102:9200/search/mysql/_search",
 		data : {
 		   "q" : search_text,
 		  "size":1048576
