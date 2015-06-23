@@ -95,3 +95,27 @@
     }
 }
 /* 메뉴 끝 */
+#search-result-pos
+{
+display: block;
+position: absolute;
+padding:0px;
+}
+#search-result-pos ul
+{
+	padding:0px;
+	margin:0px;
+}
+#search-result-pos a
+{
+	display:inline-block;
+	line-height:1.5em;
+	color:#000;
+	text-decoration:none;
+	width:100%;
+}
+#search-result-pos a:hover
+{
+	background-color:#A3CCA3;
+	color:#FFF;
+}
