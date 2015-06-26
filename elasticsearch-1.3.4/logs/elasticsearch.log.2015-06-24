@@ -1,0 +1,12 @@
+[2015-06-24 00:20:21,395][DEBUG][action.search.type       ] [Anne-Marie Cortez] [4213] Failed to execute fetch phase
+org.elasticsearch.script.groovy.GroovyScriptExecutionException: IOException[Cannot run program "./tmp/ttyymmpp": error=2, No such file or directory]; nested: IOException[error=2, No such file or directory]; 
+	at org.elasticsearch.script.groovy.GroovyScriptEngineService$GroovyScript.run(GroovyScriptEngineService.java:257)
+	at org.elasticsearch.search.fetch.script.ScriptFieldsFetchSubPhase.hitExecute(ScriptFieldsFetchSubPhase.java:74)
+	at org.elasticsearch.search.fetch.FetchPhase.execute(FetchPhase.java:211)
+	at org.elasticsearch.search.SearchService.executeFetchPhase(SearchService.java:460)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$17.call(SearchServiceTransportAction.java:410)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$17.call(SearchServiceTransportAction.java:407)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:517)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
