@@ -7,15 +7,25 @@ import pymysql
 
 
 
-class WikiText(db.Model):
+class WikiInfo(db.Model):
 
-    __tablename__ = 'documents'
+    __tablename__ = 'page'
 
-    id = db.Column(db.Integer, primary_key=True)
-    document = db.Column(db.Unicode(convert_unicode=True), unique=True)
+    page_id = db.Column(db.Integer, primary_key=True)
+    page_title = db.Column(db.Unicode(convert_unicode=True), unique=True)
+    '''
     rev = db.Column(db.Integer)
     text = db.Column(db.Unicode(convert_unicode=True))
     date = db.Column(db.Integer)
+    '''
+
+class WikiText(db.Model):
+
+    __tablename__ = 'text'
+
+    old_id = db.Column(db.Integer, primary_key=True)
+    old_text = db.Column(db.Unicode(convert_unicode=True))
+
 
 def detour(page_role):
     editpage = str(page_role)
@@ -75,6 +85,7 @@ def dbtitlesearch(target):
         return result
     else:
         return "somthing's wrong"
+
 
 
 
