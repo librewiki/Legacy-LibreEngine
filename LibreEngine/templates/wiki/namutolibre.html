@@ -1,0 +1,31 @@
+{% extends "static/layout.html" %}
+
+
+        <script>
+            function convert(){
+                var text = document.getElementById("namu-mark").value;
+
+
+                document.getElementById("result-mark").value = text;
+            }
+        </script>
+    <body>
+    {% block content %}
+        <p>
+        현재 지원되는것들<br>
+        취소선, 아랫첨자, 윗첨자, [주소|예제] [a라고쓰고|b라고읽]<br>
+        알고리즘상 변환문제가 나타나는것들은 주석처리로 보류중<br>
+        아직 지원되지 않는것들<br>
+        주석처리, 유튜브링크 등등<br>
+        </p>
+        <h1>나무 마크</h1>
+
+        <form action="/convert" method="POST">
+            <textarea name="namu-mark" id="namu-mark" style="min-width:100%;max-width:100%;width:100%;height: 600px;"></textarea>
+            <input type = "submit" onclick="convert()" value="변환하기" style="width:100%;display:block;">
+        </form>
+        <h1>결과</h1>
+
+        <textarea id="result-mark" style="min-width:100%;max-width:100%;width:100%;height: 600px;"}>{{ text }}</textarea>
+    {% endblock %}
+    </body>

@@ -98,8 +98,21 @@ def search(name):
         return render_template('wiki/wiki.html', name=name, contents="Something's wrong!")
 
 @app.route('/namutolibre')
-def syntaxchanger(target):
+def namutolibre():
 
-    namutolibresyntax(target)
+
+
+    return render_template('wiki/namutolibre.html')
+
+@app.route('/convert', methods=['GET', 'POST'])
+def convert():
+
+    if request.method == 'POST':
+        test = request.form.get('namu-mark', type=str)
+        text = namutolibresyntax(test)
+        return render_template('wiki/convert.html',text=text,test=test)
+    else :
+        return render_template('wiki/wiki.html')
+
 
 

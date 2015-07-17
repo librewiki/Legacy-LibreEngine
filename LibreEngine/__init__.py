@@ -1,10 +1,108 @@
 __author__ = '이츠레아,나유타'
 from flask import Flask
 from LibreEngine.conf import config
+import re
+
+def namutolibre(target):
+
+    output = target
+    #a라고쓰고b라고읽는다 인듯
+    #fuck = bool(re.search('\[\[(.*)\|(.*)\]\]',output))
+    '''
+    if bool(re.search('\[\[(.*)\|(.*)\]\]',output)) == True:
+        output = re.sub(u"\[\[(.*)\|(.*)\]\]",r"[[\1|\2]]",output)
+
+    if bool(re.search('\[\[wiki\:\"(.*)\" (.*)\]\]',output)) == True:
+        output = re.sub(u"\[\[wiki\:\"(.*)\" (.*)\]\]",r"[[\1|\2]]",output)
+
+    if bool(re.search('\[(.*)\|(.*)\]',output)) == True:
+        output = re.sub(u"\[(.*)\|(.*)\]",r"[[\1|\2]]",output)
+
+    #주소|예제
+
+    if bool(re.search('\[http(.*)\|(.*)\]',output)) == True:
+        output = re.sub(u"\[http(.*)\|(.*)\]",r"[http\1 \2]",output)
+
+
+    if bool(re.search('\[\[http(.*) (.*)\]\]',output)) == True:
+        output = re.sub(u"\[\[http(.*) (.*)\]\]",r"[http\1 \2]",output)
+
+    if bool(re.search('\[http(.*)\|(.*)',output)) == True:
+        output = re.sub(u"\[http(.*)\|(.*)\]",r"[http\1 \2]",output)
+    '''
+    #취소선
+    delcount = output.count('~~')
+    while delcount > 0:
+        newoutput = output.replace('~~','<del>',1)
+        output = newoutput
+        newoutput = output.replace('~~','</del>',1)
+        output = newoutput
+        delcount = output.count('~~')
+    ''' # 알고리즘상 문제로 주석처리함.
+    if bool(re.search('~~(.*)~~',output)) == True:
+        output = re.sub(u"~~(.*)~~",r"{{~~|\1}}",output)
+    '''
+    delcount = output.count('--')
+    while delcount > 0:
+        newoutput = output.replace('--','<del>',1)
+        output = newoutput
+        newoutput = output.replace('--','</del>',1)
+        output = newoutput
+        delcount = output.count('--')
+    ''' # 알고리즘상 문제로 주석처리함.
+    if bool(re.search('--(.*)--',output)) == True:
+        newoutput = re.sub(u"--(.*)--",r"{{--|\1}}",output)
+        output = newoutput
+    '''
+    #윗첨자
+    supcount = output.count('^^')
+    while supcount > 0:
+        newoutput = output.replace('^^','<sup>',1)
+        output = newoutput
+        newoutput = output.replace('^^','</sup>',1)
+        output = newoutput
+        supcount = output.count('^^')
+    ''' 알고리즘상 문제로 주석처리함. 대체.
+    if bool(re.search('\^\^(.*)\^\^',output)) == True:
+        output = re.sub(u"\^\^(.*)\^\^",r"<sup>\1</sup>",output)
+    '''
+    #아래첨자
+    subcount = output.count(',,')
+    while subcount > 0:
+        newoutput = output.replace(',,','<sub>',1)
+        output = newoutput
+        newoutput = output.replace(',,','</sub>,1')
+        output = newoutput
+        subcount = output.count(',,')
+    '''
+    if bool(re.search('\,\,(.*)\,\,',output)) == True:
+        output = re.sub(u"\,\,(.*)\,\,",r"<sub>\1</sub>",output)
+    '''
+    '''
+    #글자 키우기
+    if bool(re.search('\{\{\{\+1(.*)\}\}\}',output)) == True:
+        output = re.sub(u"\{\{\{\+1(.*)\}\}\}",r"{{+1|\1}}",output)
+
+    #youtube
+    if bool(re.search('\[\[youtube\((.*)\)\]\]',output)) == True:
+        output = re.sub(u"\[\[youtube\((.*)\)\]\]",r"{{youtube|\1}}",output)
+
+    if bool(re.search('\[youtube\((.*)\)\]',output)) == True:
+        output = re.sub(u"\[youtube\((.*)\)\]",r"{{youtube|\1}}",output)
+
+    #주석
+    if bool(re.search('\[\* (.*)\]',output)) == True:
+        output = re.sub(u"\[\* (.*)\]",r"<ref>\1</ref>",output)
+
+    '''
+
+    return output
 
 
 app = Flask(__name__)
 app.config['NAME'] = config.default_config.NAME
+app.jinja_env.globals.update(namutolibre=namutolibre)
+
 
 
 from LibreEngine.include import routes
