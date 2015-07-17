@@ -70,23 +70,23 @@ def namutolibresyntax(target):
     #a라고쓰고b라고읽는다 인듯
     #fuck = bool(re.search('\[\[(.*?)\|(.*?)\]\]',output))
 
-    if bool(re.search('\[\[(.*?)\|(.*?)\]\]',output)) == True:
-        output = re.sub(u"\[\[(.*?)\|(.*?)\]\]",r"[[\1|\2]]",output)
+    #if bool(re.search('\[\[(.*?)\|(.*?)\]\]',output)) == True:
+    output = re.sub(u"\[\[(.*?)\|(.*?)\]\]",r"[[\1|\2]]",output)
 
-    if bool(re.search('\[\[wiki\:\"(.*?)\" (.*?)\]\]',output)) == True:
-        output = re.sub(u"\[\[wiki\:\"(.*?)\" (.*?)\]\]",r"[[\1|\2]]",output)
+    #if bool(re.search('\[\[wiki\:\"(.*?)\" (.*?)\]\]',output)) == True:
+    output = re.sub(u"\[\[wiki\:\"(.*?)\" (.*?)\]\]",r"[[\1|\2]]",output)
 
-    if bool(re.search('\[(.*?)\|(.*?)\]',output)) == True:
-        output = re.sub(u"\[(.*?)\|(.*?)\]",r"[\1|\2]",output)
+    #if bool(re.search('\[(.*?)\|(.*?)\]',output)) == True:
+    output = re.sub(u"\[(.*?)\|(.*?)\]",r"[\1|\2]",output)
 
     #주소|예제
 
-    if bool(re.search('\[\[http(.*?)\|(.*?)\]\]',output)) == True:
-        output = re.sub(u"\[\[http(.*?)\|(.*?)\]\]",r"[http\1 \2]",output)
+    #if bool(re.search('\[\[http(.*?)\|(.*?)\]\]',output)) == True:
+    output = re.sub(u"\[\[http(.*?)\|(.*?)\]\]",r"[http\1 \2]",output)
 
 
-    if bool(re.search('\[\[http(.*?) (.*?)\]\]',output)) == True:
-        output = re.sub(u"\[\[http(.*?) (.*?)\]\]",r"[http\1 \2]",output)
+    #if bool(re.search('\[\[http(.*?) (.*?)\]\]',output)) == True:
+    output = re.sub(u"\[\[http(.*?) (.*?)\]\]",r"[http\1 \2]",output)
     '''
     if bool(re.search('\[http(.*?)\|(.*?)',output)) == True:
         output = re.sub(u"\[http(.*?)\|(.*?)\]",r"[http\1 \2]",output)
@@ -141,15 +141,15 @@ def namutolibresyntax(target):
     '''
 
     #글자 키우기
-    if bool(re.search('\{\{\{\+1(.*?)\}\}\}',output)) == True:
-        output = re.sub(u"\{\{\{\+1(.*?)\}\}\}",r"{{+1|\1}}",output)
+    #if bool(re.search('\{\{\{\+1(.*?)\}\}\}',output)) == True:
+    output = re.sub(u"\{\{\{\+1(.*?)\}\}\}",r"{{+1|\1}}",output)
 
     #youtube
-    if bool(re.search('\[\[youtube\((.*?)\)\]\]',output)) == True:
-        output = re.sub(u"\[\[youtube\((.*?)\)\]\]",r"{{youtube|\1}}",output)
+    #if bool(re.search('\[\[youtube\((.*?)\)\]\]',output)) == True:
+    output = re.sub(u"\[\[youtube\((.*?)\)\]\]",r"{{youtube|\1}}",output)
 
-    if bool(re.search('\[youtube\((.*?)\)\]',output)) == True:
-        output = re.sub(u"\[youtube\((.*?)\)\]",r"{{youtube|\1}}",output)
+    #if bool(re.search('\[youtube\((.*?)\)\]',output)) == True:
+    output = re.sub(u"\[youtube\((.*?)\)\]",r"{{youtube|\1}}",output)
     '''
     #주석
     if bool(re.search('\[\* (.*)\]',output)) == True:
