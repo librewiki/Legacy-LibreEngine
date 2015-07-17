@@ -6,6 +6,34 @@ import pymysql
 #from pymysqlreplication import BinLogStreamReader
 import re
 
+def htmltolibre(mwtext):
+
+    mwtext = mwtext.replace('<del>','--')
+    mwtext = mwtext.replace('</del>','--')
+    mwtext = mwtext.replace('[편집]','')
+    mwtext = mwtext.replace('/w/','/wiki/')
+    mwtext = re.sub('\<a class\=\"wiki\-fn\-content\" title\=\"(.*?)\" href\=\"\#fn(.*?)\"\>\<span class\=\"target\" id=\"rfn(.*?)\"\>\<\/span\>\[(.*?)\]\<\/a\>', r'[ref] \1 [/ref]',mwtext)
+    mwtext = re.sub('\<span class\=\"footnote\-list\"\>.*?\<\/span\>','<del>\1</del>',mwtext)
+    mwtext = re.sub('\<span class\=\"wiki\-edit\-section\"\>.*?\<\/span\>','',mwtext)
+    mwtext = re.sub('\<span class\=\"target\".*?\<\/span\>','<ref>\1</ref>',mwtext)
+    output = convert(mwtext, 'mediawiki', format='html')
+
+    '''
+    refcount = output.count('[ref]')
+    while refcount > 0:
+        output = output.replace('[ref]','<ref>',1)
+        output = output.replace('[/ref]','</ref>',1)
+        refcount = output.count('[ref]')
+    '''
+    '''
+    output = output.replace("<","&lt;")
+    output = output.replace(">","&gt;")
+    output = output.replace("\"","$quot;")
+    '''
+
+    rendered = output
+
+    return rendered
 
 
 
@@ -150,15 +178,14 @@ def namutolibresyntax(target):
 
     #if bool(re.search('\[youtube\((.*?)\)\]',output)) == True:
     output = re.sub(u"\[youtube\((.*?)\)\]",r"{{youtube|\1}}",output)
-    '''
+
     #주석
-    if bool(re.search('\[\* (.*)\]',output)) == True:
-        output = re.sub(u"\[\* (.*?)\]",r"<ref>\1</ref>",output)
-    '''
-    gakjucount = output.count('[각주]')
-    while gakjucount > 0:
-        output = output.replace('[각주]','{{각주}}',1)
-        gakjucount = output.count('[각주]')
+    #if bool(re.search('\[\* (.*)\]',output)) == True:
+    output = re.sub(u"\[\* (.+?)\]",r"<ref>\1</ref>",output)
+
+
+    output = output.replace('[각주]','{{각주}}')
+    #gakjucount = output.count('[각주]')
 
 
     output = re.sub(u'\{\{\{(.*?)\=\"\/\/(.*?)\"(.*?)\}\}\}',r"{{youtube|http://\2}}",output)

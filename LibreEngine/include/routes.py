@@ -110,9 +110,39 @@ def convert():
     if request.method == 'POST':
         test = request.form.get('namu-mark', type=str)
         text = namutolibresyntax(test)
-        return render_template('wiki/convert.html',text=text,test=test)
+        rendered = mwtohtmlrender(text)
+        return render_template('wiki/convert.html',text=text,test=test, rendered=rendered)
     else :
         return render_template('wiki/wiki.html')
+
+@app.route('/htmltolibre', methods=['GET', 'POST'])
+def htolconvertor():
+
+    if request.method == 'POST':
+        test = request.form.get('namu-mark', type=str)
+        text = htmltolibre(test)
+        text = re.sub("(<.*?>)", "", text)
+
+        refcount = text.count('[ref]')
+        while refcount > 0:
+            text = text.replace('[ref]','<ref>',1)
+            text = text.replace('[/ref]','</ref>',1)
+            refcount = text.count('[ref]')
+
+        scharfor = text.count('--')
+
+        while scharfor > 0:
+            text = text.replace('--','<del>',1)
+
+            text = text.replace('--','</del  > ',1)
+
+            scharfor = text.count('--')
+
+
+        rendered = mwtohtmlrender(text)
+        return render_template('wiki/htmltolibre.html',text=text,test=test, rendered=rendered)
+    else :
+        return render_template('wiki/htmltolibre.html')
 
 
 

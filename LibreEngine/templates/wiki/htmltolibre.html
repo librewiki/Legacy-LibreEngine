@@ -18,15 +18,15 @@
         아직 지원되지 않는것들<br>
         주석처리, 유튜브링크 등등<br>
         </p>
-        <h1>나무 마크</h1>
+        <h1>나무 html</h1>
 
-        <form action="/convert" method="POST">
+        <form action="/htmltolibre" method="POST">
             <textarea name="namu-mark" id="namu-mark" style="min-width:100%;max-width:100%;width:100%;height: 600px;">{{ test }}</textarea>
             <input type = "submit" onclick="convert()" value="변환하기" style="width:100%;display:block;">
         </form>
         <h1>결과</h1>
 
-        <textarea id="result-mark" style="min-width:100%;max-width:100%;width:100%;height: 600px;"}>{{ text }}</textarea>
+        <textarea datatype="text" id="result-mark" style="min-width:100%;max-width:100%;width:100%;height: 600px;"}>{{ text }}</textarea>
 
         <h1>연습장</h1>
         {{ rendered | safe }}
