@@ -1,7 +1,7 @@
 # 리브레 엔진
 리브레 위키의 새로운 엔진이다.
 
-이슈는 [Librewiki/Issue](https://github.com/librewiki/issue/issues/new)로 제출해 주세요.
+이슈는 [리브레 위키 이슈 트래커](https://issue.librewiki.net)로 제출해 주세요.
 
 # 안까먹게 적어두자 / Ubuntu 14.04 개발환경 갖추기
 
